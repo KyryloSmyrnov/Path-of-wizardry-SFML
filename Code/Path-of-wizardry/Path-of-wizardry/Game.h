@@ -1,7 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "State.h"
+#include "MainMenuState.h"
 
 class Game
 {
@@ -13,8 +13,13 @@ private:
 	sf::Clock dtClock;
 	float dt;
 
+	std::stack<State*> states;
+	std::map<std::string, int> supportedKeys;
+
 	//Initialization
 	void initWindow();
+	void initStates();
+	void initKeys();
 
 public:
 	//Constructor/Destructor
@@ -22,10 +27,17 @@ public:
 	virtual ~Game();
 
 	//Methods
+
+		//Regular
+	void endApplication();
+
+		//Update
 	void updateDt();
 	void updateSFMLEvents();
 	void update();
+		//Render
 	void render();
+		//Core
 	void run();
 };
 

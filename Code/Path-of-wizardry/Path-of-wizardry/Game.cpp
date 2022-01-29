@@ -28,18 +28,63 @@ void Game::initWindow()
 	this->window->setVerticalSyncEnabled(vertical_sync_enabled);
 }
 
+void Game::initStates()
+{
+	this->states.push(new MainMenuState(this->window, &this->supportedKeys));
+}
+
+void Game::initKeys()
+{
+	std::ifstream ifs("Config/supported_keys.ini");
+	if (ifs.is_open())
+	{
+		std::string key = "";
+		int key_value = 0;
+		while (ifs >> key >> key_value)
+		{
+			this->supportedKeys[key] = key_value;
+		}
+	}
+	ifs.close();
+
+	//DEBUG REMOVE LATER
+
+	for (auto i : this->supportedKeys)
+	{
+		std::cout << i.first << " " << i.second << "\n";
+	}
+}
+
+
+
+
+
+
 //Contructor/Destructor
 Game::Game()
 {
 	this->initWindow();
+	this->initKeys();
+	this->initStates();
 }
 
 Game::~Game()
 {
 	delete this->window;
+
+	while (!this->states.empty())
+	{
+		delete this->states.top();
+		this->states.pop();
+	}
 }
 
+
 //Methods
+void Game::endApplication()
+{
+	std::cout << "Ending Application";
+}
 
 void Game::updateDt()
 {
@@ -61,6 +106,23 @@ void Game::updateSFMLEvents()
 void Game::update()
 {
 	this->updateSFMLEvents();
+	if (!this->states.empty())
+	{
+		this->states.top()->update(this->dt);
+
+		if (this->states.top()->getQuit())
+		{
+			this->states.top()->endState();
+			delete this->states.top();
+			this->states.pop();
+		}
+	}
+	//Application end
+	else
+	{
+		this->endApplication();
+		this->window->close();
+	}
 }
 
 void Game::render()
@@ -68,6 +130,10 @@ void Game::render()
 	this->window->clear();
 
 	//Render items
+	if (!this->states.empty())
+	{
+		this->states.top()->render();
+	}
 
 	this->window->display();
 }

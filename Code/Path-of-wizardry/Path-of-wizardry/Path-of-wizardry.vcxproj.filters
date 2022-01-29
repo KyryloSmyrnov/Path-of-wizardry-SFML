@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="States">
+      <UniqueIdentifier>{246b4b0d-8b67-4570-8569-33d050ea1a00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entuties">
+      <UniqueIdentifier>{a26e9d2f-bb93-4d75-b4cd-c173dc1096f6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,16 +27,40 @@
     <ClCompile Include="Game.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
     <ClCompile Include="State.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Entuties</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Файлы ресурсов</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>States</Filter>
+    </ClInclude>
     <ClInclude Include="State.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Entuties</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuState.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Файлы ресурсов</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,5 +1,26 @@
-﻿  Game.cpp
+﻿  Button.cpp
+  Game.cpp
+  GameState.cpp
   main.cpp
+  MainMenuState.cpp
+D:\WarSpear\Games\Path-of-wizardry\Code\Path-of-wizardry\Path-of-wizardry\MainMenuState.cpp(25,78): warning C4244: аргумент: преобразование "T" в "T", возможна потеря данных
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+D:\WarSpear\Games\Path-of-wizardry\Code\Path-of-wizardry\Path-of-wizardry\MainMenuState.cpp(25,57): warning C4244: аргумент: преобразование "T" в "T", возможна потеря данных
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
   State.cpp
   Создание кода...
   Path-of-wizardry.vcxproj -> D:\WarSpear\Games\Path-of-wizardry\Code\Path-of-wizardry\Debug\Path-of-wizardry.exe
